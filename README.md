@@ -1,22 +1,22 @@
-# Lithophane Generator :bulb:→:national_park:→:eyes:
+# Lithophane Generator
 Generates a lithophane STL file from an image, ready for 3d printing! For this project, I decided to jump right in with using Anaconda and Jupyter Notebook to easily manage my code and dependencies; it was a great experience and I'll definately be using these tools again! Without having to scroll a bunch, here's the end result, after printing: 
 
 ![testPrint](/images/test_print.jpg)
 
-## Contents :memo:
+## Contents
 1. Process Overview
 2. Results
 3. Improvements and Future Work
 4. What I've Learned
 
-## 1. Process Overview :bar_chart:
+## 1. Process Overview
 The general process is: Preprocess image → Generate point cloud → Generate mesh → Export STL.
 
 The image is first converted to black and white using the formula:
 ```
 greyscale = 0.2989b + 0.5870g + 0.1140b
 ```
-I believe this is known as the *luminosity method* and, interestingly, these weights are a function of the wavelengths of the colour components :thinking:. See [this page](https://www.dynamsoft.com/blog/insights/image-processing/image-processing-101-color-space-conversion/) for more information on colour space conversion.
+I believe this is known as the *luminosity method* and, interestingly, these weights are a function of the wavelengths of the colour components!. See [this page](https://www.dynamsoft.com/blog/insights/image-processing/image-processing-101-color-space-conversion/) for more information on colour space conversion.
 
 ![grayscale](/images/grayscale_output.png)
 
@@ -51,14 +51,14 @@ My printer isn't perfectly set up and and I'm not yet sure what the cause for th
 * Perimeter Speeds: 35mm/s - 45mm/s
 * Print Along the Y direction
 
-## 3. Improvements and Future Work :chart_with_upwards_trend:
+## 3. Improvements and Future Work
 There are definately improvements that can be made, like adding support for non-square images, improving efficiency, etc... but at the moment I'm not concerned with implimenting any changes. My goal was to create an STL lithophane and that's what I acheived; I simply won't gain much from polishing my program up (in this case, where I'm the sole end user) and I'd rather move on to other things.
 
 Speaking of which, I'd love to use what I've learned in this process to perhaps generate a different height-map STL file from an image - one that creates images via caustics!! I honestly didn't think that something like this could be done, but I'll definately be giving it a go, following along with blog post [*Hiding Images in Plain Sight: The Physics Of Magic Windows*](https://mattferraro.dev/posts/caustics-engineering) written by the amazing Matt Ferraro. 
 
 ![caustics](/images/caustics.png)
 
-## 4. What I've Learned :brain:
+## 4. What I've Learned
 As was to be expected, this process took longer than expected. I read somewhere that engineering projects (and I assume this holds true for many other types of projects) follow the *rule of pi* which states:
 ```
 actual completion time = π * (expected completion time)
