@@ -22,9 +22,27 @@ z = h*(1-(p/255))+d
 ```
 where h is the height of the lithophane (thickness), p is the pixel value 0≤p≤255, and d is the depth corresponding to the brightest part of the image. This only creates the surface point cloud, and so for each point, a corresponding vertex was created with a value of z=0 to create the flat back plane. 
 
-To create a mesh from the point cloud, I initially experimented with the open3d and pyvista libraries which ultimately didn't work (although they did offer some very cool pointcloud and geometry visualisation functions respectively). My plan B was to build the STL file by hand, systematically defining the edges and faces of the mesh myself. This I achieved through the use of the numpy-stl library. Looking at the documentation (which in my opinion in lacking in exposition somewhat), it seems that to define a face, you don't reference the vertices themselves, but rather *their index* in the array in which they're stored. There's likely a good reason for this but I've not yet thought of what it could be
+To create a mesh from the point cloud, I initially experimented with the open3d and pyvista libraries which ultimately didn't work (although they did offer some very cool pointcloud and geometry visualisation functions respectively). My plan B was to build the STL file by hand, systematically defining the edges and faces of the mesh myself. This I achieved through the use of the numpy-stl library. Looking at the documentation (which in my opinion in lacking in exposition somewhat), it seems that to define a face, you don't reference the vertices themselves, but rather *their index* in the array in which they're stored. There's likely a good reason for this but I've not yet thought of what it could be. With that being said, I managed to get my script to throw out the intended STL, which I excitedly imported into blender to inspect and see if it worked; why test something in reality when you can just simulate it all?
 ## 2. Results
+This is the initial render:
+
+...and here are some prints:
+
+My printer isn't perfectly set up and and I'm not yet sure what the cause for the horizontal line in the first picture is, but it seems to be working well regardless! Annoyingly I've forgotten the source, but I read that some likely good settings and parameters are:
+
+*Lithophane Generation Settings*
+* Maximum Thickness: 3mm
+* Minimum Thinness: .6mm (or .2 plus your nozzle size)
+* Negative: If you have the option print with a negative setting
+
+*Slicer Settings:*
+* Infill: 100%
+* Perimeters: 10
+* Perimeter Speeds: 35mm/s - 45mm/s
+* Print Along the Y direction
 
 ## 3. Improvements and Future Work
 
 ## 4. What I've Learned
+* the time it took
+* sometimes libraries are not better and it may be more efficient to build a solution from the ground up
