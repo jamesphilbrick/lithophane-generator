@@ -29,7 +29,7 @@ where h is the height of the lithophane (thickness), p is the pixel value 0â‰¤pâ
 ![height](/images/height_output.png)
 
 To create a mesh from the point cloud, I initially experimented with the [open3d](https://pypi.org/project/open3d/) and [pyvista](https://docs.pyvista.org/) libraries which ultimately didn't work (although they did offer some very cool pointcloud and geometry visualisation functions respectively). My plan B was to build the STL file by hand, systematically defining the edges and faces of the mesh myself. This I achieved through the use of the [numpy-stl](https://pypi.org/project/numpy-stl/) library. Looking at the documentation (which in my opinion in lacking in exposition somewhat), it seems that to define a face, you don't reference the vertices themselves, but rather *their index* in the array in which they're stored! There's likely a good reason for this but I've not yet thought of what it could be. With that being said, I managed to get my script to throw out the intended STL, which I excitedly imported into blender to inspect and see if it worked; why test something in reality when you can just simulate it all?
-## 2. Results :clipboard:
+## 2. Results
 This is the initial render:
 
 ![render](/images/render.png)
